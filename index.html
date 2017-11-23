@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>慕课七夕主题</title>
+    <script src="http://img.mukewang.com/down/55ac9a860001a6c500000000.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/bg.css"/>
+    <script type="text/javascript" src="js/swipe.js"></script>
+    <script type="text/javascript" src="js/jquery.transit.js"></script>
+</head>
+
+<body>
+<div id='content'>
+    <ul class='content-wrap'>
+        <!-- 第一副画面 -->
+        <li>
+            <div class="a_background">
+                <div class="a_background_top"></div>
+                <div class="a_background_middle"></div>
+                <div class="a_background_bottom"></div>
+            </div>
+            <!-- 云 -->
+            <div class="cloudArea">
+                <div class="cloud cloud1 cloud1Anim"></div>
+                <div class="cloud cloud2 cloud2Anim"></div>
+            </div>
+            <!-- 太阳 -->
+            <div id="sun" class="rotation"></div>
+        </li>
+        <!-- 第二副画面 -->
+        <li>
+            <div class="b_background"></div>
+            <div class="b_background_preload"></div>
+            <div class="shop">
+                <div class="door">
+                    <div class="door-left"></div>
+                    <div class="door-right"></div>
+                </div>
+                <div class="lamp"></div>
+            </div>
+            <div class="bird"></div>
+        </li>
+
+        <!-- 第三副画面 -->
+        <li>
+            <div class="bg_c">
+                <div class="bg_c_top"></div>
+                <div class="bg_c_middle"></div>
+                <div class="bg_c_bottom"></div>
+            </div>
+            <div id="girl"></div>
+            <div class="bridge-bottom">
+                <div class="water">
+                    <div class="water1"></div>
+                    <div class="water2"></div>
+                    <div class="water3"></div>
+                    <div class="water4"></div>
+                </div>
+            </div>
+            <!-- 星星 -->
+            <ul class="stars">
+                <li class="stars1"></li>
+                <li class="stars2"></li>
+                <li class="stars3"></li>
+                <li class="stars4"></li>
+                <li class="stars5"></li>
+                <li class="stars6"></li>
+            </ul>
+            <!--慕课网logo-->
+            <div id="logo" class="logo"></div>
+        </li>
+    </ul>
+    <div id="boy" class="charector"></div>
+    <!-- 飘花 -->
+    <div id="snowflake"></div>
+</div>
+<script type="text/javascript" src="js/qixi.js"></script>
+<script>
+    $(function() {
+
+
+        var boy = new BoyWalk();
+        boy.walkTo(5000, 0.5)
+                .then(function() {
+                    //第一次走路完成
+                    boy.scrollTo(3000, 1);
+                }).then(function(){
+                    //进入第二屏
+                    return boy.walkTo(4000, 0.5);
+                }).then(function() {
+                    //暂停走路
+                    boy.stopWalk();
+                }).then(function() {
+                    //开灯.
+                    lamp.bright();
+                    //开门
+                    return openDoor();
+                }).then(function() {
+                    //进商店
+                    return boy.toShop(2000)
+                }).then(function(){
+                    //取花
+                    return boy.takeFlower();
+                }).then(function(){
+                    //飞鸟
+                    return bird.fly();
+                }).then(function() {
+                    //出商店
+                    return boy.outShop(2000)
+                }).then(function(){
+                    //灯暗
+                    lamp.dark();
+                    //关门
+                    return closeDoor();
+                }).then(function(){
+                    //走入到第三屏
+                    boy.scrollTo(3000, 2);
+                }).then(function(){
+                    //暂停走路
+                    boy.stopWalk();
+                }).then(function(){
+                    //走到桥前面
+                    return boy.walkTo(2000, 0.15);
+                }).then(function(){
+                    //走上桥
+                    return boy.walkTo(1500, 0.25, (bridgeY - girl.getHeight()) / visualHeight);
+                }).then(function(){
+                    //走到女孩子面前.
+                    var propationX = (girl.getOffset().left - boy.getWidth() + girl.getWidth() / 5) / visualWidth;
+                    return boy.walkTo(1000, propationX);
+                }).then(function(){
+                    //男孩子走路姿势去除，呈站定姿势
+                    boy.setOrignalBoy();
+                }).then(function(){
+                    setTimeout(function(){
+                        //女孩儿转身动作
+                        girl.rotate();
+                        boy.rotate(function(){
+                            logo.run();
+                        });
+                    }, 1000);
+                }).then(function(){
+                    snowflake();
+                });
+
+
+        var audioConf = {
+            isLoop: true,
+            firstPlayURL: 'happy.wav',
+            ciculateURL: 'circulation.wav'
+        }
+        var audio = html5Audio(audioConf.firstPlayURL);
+        audio.end(function(){
+            html5Audio(audioConf.ciculateURL, audioConf.isLoop);
+        });
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,614 @@
+﻿/*背景图*/
+.a_background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.a_background_top{
+    width: 100%;
+    height: 71.6%;
+    background-image: url("../image/bg_a_top.png");
+    background-size: 100% 100%;
+}
+
+
+.a_background_middle{
+    width: 100%;
+    height: 13.1%;
+    background-image: url("../image/bg_a_middle.png");
+    background-size: 100% 100%;
+}
+
+.a_background_bottom{
+    width: 100%;
+    height: 15.3%;
+    background-image: url("../image/bg_a_bottom.png");
+    background-size: 100% 100%;
+}
+
+/*-------- 太阳自转以及动画 --------*/
+#sun {
+    background: url("../image/sun.png") no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: -30px;
+    height: 201px;
+    width: 201px;
+    right: 40%;
+}
+
+.rotation {
+    -webkit-animation-name: rotation;
+    -webkit-animation-duration: 30s;
+    -moz-animation-name: rotation;
+    -moz-animation-duration: 30s;
+}
+
+@-webkit-keyframes rotation {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-2000px) translateY(400px);
+    }
+}
+
+@-moz-keyframes rotation {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(-2000px) translateY(400px);
+    }
+}
+
+/* 天空云 */
+.cloud {
+    z-index: 2;
+    position: absolute;
+}
+
+.cloud1 {
+    width: 181px;
+    height: 101px;
+    left: -5%;
+    top: 15%;
+    background: url("../image/cloud1.png");
+}
+
+
+.cloud2 {
+    width: 301px;
+    height: 140px;
+    right: -5%;
+    background: url("../image/cloud2.png");
+}
+
+.cloud1Anim{
+    -webkit-animation-name: smallCloud;
+    -webkit-animation-duration: 30s;
+    -webkit-animation-iteration: infinite;
+    -moz-animation-name: smallCloud;
+    -moz-animation-duration: 30s;
+    -moz-animation-iteration: infinite;
+}
+
+.cloud2Anim{
+    -webkit-animation-name: largeCloud;
+    -webkit-animation-duration: 60s;
+    -webkit-animation-iteration: infinite;
+    -moz-animation-name: largeCloud;
+    -moz-animation-duration: 60s;
+    -moz-animation-iteration: infinite;
+}
+
+
+@-webkit-keyframes smallCloud {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@-moz-keyframes smallCloud {
+    0% {
+        left: -5%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@-webkit-keyframes largeCloud {
+    0% {
+        right: -5%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+@-moz-keyframes largeCloud {
+    0% {
+        right: -5%;
+    }
+    100% {
+        right: 100%;
+    }
+}
+
+
+/*****************************第二页********************************/
+/*背景图*/
+.b_background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/bg_b.png");
+    background-size: 100% 100%;
+    position: absolute;
+}
+
+.b_background_preload {
+    background: url("../image/bg_b.png") no-repeat -9999px -9999px;
+}
+
+.lamp-bright {
+    background-image: url("../image/bg_b_light.png");
+}
+
+
+/*商店*/
+
+.shop {
+    width: 39.5%;
+    height: 35.5%;
+    position: absolute;
+    left: 29%;
+    top: 36.5%;
+}
+
+.door {
+    position: absolute;
+    width: 32%;
+    height: 100%;
+    top: 32%;
+    height: 68%;
+    overflow: hidden;
+    left: 58.5%;
+}
+
+.door-left,
+.door-right {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+}
+
+.door-left {
+    left: 0%;
+    background: url(../image/door_left.png);
+    background-size: 100% 100%;
+}
+
+.door-right {
+    left: 50%;
+    background: url(../image/door_right.png);
+    background-size: 100% 100%;
+}
+
+/*鸟*/
+.bird {
+    min-width: 91px;
+    min-height: 71px;
+    top: 10%;
+    position: absolute;
+    z-index: 10;
+    right: -91px;
+    background: url(../image/bird.png) -182px 0px no-repeat;
+}
+.birdFly {
+    -webkit-animation-name: bird-slow;
+    -webkit-animation-duration: 400ms;
+    -webkit-animation-timing-function: step-start;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: bird-slow;
+    -moz-animation-duration: 400ms;
+    -moz-animation-timing-function: step-start;
+    -moz-animation-iteration-count: infinite;
+}
+
+
+/*鸟慢飞*/
+@-webkit-keyframes bird-slow {
+    /* 鸟飞的动作 */
+    0% {
+        background-position: -182px 0px;
+    }
+    50% {
+        background-position: 0px 0px;
+    }
+    75% {
+        background-position: -91px 0px;
+    }
+    100% {
+        background-position: -182px 0px;
+    }
+}
+
+@-moz-keyframes bird-slow {
+    /* 鸟飞的动作 */
+    0% {
+        background-position: -182px 0px;
+    }
+    50% {
+        background-position: 0px 0px;
+    }
+    75% {
+        background-position: -91px 0px;
+    }
+    100% {
+        background-position: -182px 0px;
+    }
+}
+
+/*******************************第三页*********************************/
+.bg_c{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: 100% 100%;
+}
+.bg_c_top{
+    background:url(../image/bg_c.png) no-repeat;
+    /*position: absolute;
+    top: 0px;*/
+    width: 100%;
+    height: 71.6%;
+    background-size: 100% 100%;
+}
+.bg_c_middle{
+    background:url("../image/bg_c_middle.png") no-repeat;
+    /*position: absolute;
+    top:30%;*/
+    width: 100%;
+    height: 13.1%;
+    background-size: 100% 100%;
+}
+.bg_c_bottom{
+    background: url("../image/bg_c_bottom.png") no-repeat;
+    /*position: absolute;
+    top: 60%;*/
+    width: 100%;
+    height: 15.3%;
+    background-size: 100% 100%;
+}
+/*小女孩*/
+#girl{
+    background: url("../image/girl.png") -755px -0px no-repeat;
+    position: absolute;
+    right: 40%;
+    top: 37%;
+    width: 151px;
+    height: 291px;
+}
+/*桥*/
+.bridge-bottom {
+    position: absolute;
+    width: 41%;
+    height: 24%;
+    left: 29.5%;
+    top: 76%;
+    overflow: hidden;
+    /*    -webkit-transform:perspective(8px) rotateX(.8deg); */
+}
+/*水波*/
+.water{
+    width: 100%;
+    height: 100%;
+}
+.water1,.water2,.water3,.water4{
+    background: url("../image/water.png") no-repeat;
+    position: absolute;
+    -webkit-animation-name: shake;
+    -webkit-animation-duration: 40s;
+    -webkit-animation-direction: alternate;
+    -webkit-anination-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+
+    -moz-animation-name: shake;
+    -moz-animation-duration: 40s;
+    -moz-animation-direction: alternate;
+    -moz-anination-timing-function: linear;
+    -moz-animation-iteration-count: infinite;
+}
+.water1{
+    background-position: -260px -0px;
+    width: 130px;
+    height: 15px;
+    top: 13%;
+    left: 35%;
+}
+.water2 {
+    width: 161px;
+    height: 9px;
+    top: 30%;
+    left: 45%;
+    background-position:-693px -0px;
+}
+
+.water3 {
+    width: 261px;
+    height: 29px;
+    top: 50%;
+    left: 15%;
+    background-position:-0px -0px;
+}
+
+.water4 {
+    width: 301px;
+    height: 12px;
+    top: 75%;
+    left: 30%;
+    background-position: -392px -0px;
+}
+@-webkit-keyframes shake {
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-30px, 0px, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(30px, 0px, 0);
+    }
+}
+
+@-moz-keyframes shake {
+    0%, 100% {
+        -moz-transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -moz-transform: translate3d(-30px, 0px, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -moz-transform: translate3d(30px, 0px, 0);
+    }
+}
+/*星星*/
+.stars{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+.stars > li{
+    background: url("../image/star.png") no-repeat;
+    width: 30px;
+    height: 31px;
+    position: absolute;
+    -webkit-animation-name: flash;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-duration: 5s;
+    -moz-animation-name: flash;
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -moz-animation-duration: 5s;
+}
+.stars1 {
+    top: 20%;
+    left: 30%;
+}
+
+.stars2 {
+    top: 15%;
+    left: 20%;
+}
+
+.stars3 {
+    top: 25%;
+    left: 85%;
+}
+
+.stars4 {
+    top: 30%;
+    left: 70%;
+}
+
+.stars5 {
+    top: 25%;
+    left: 20%;
+}
+
+.stars6 {
+    top: 10%;
+    left: 65%;
+}
+@-webkit-keyframes flash {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes flash {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%,
+    75% {
+        opacity: 0;
+    }
+}
+
+/*logo效果*/
+.logo {
+    width: 185px;
+    height: 81px;
+    background-image: url(../image/logo.png);
+    z-index: 999999;
+    position: absolute;
+    left: 50%;
+    margin-left: -92.5px;
+    top: 30px;
+    display: none;
+}
+
+.logolightSpeedIn {
+    display: block;
+    -webkit-animation-name: lightSpeedIn;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-duration: 1s;
+    -moz-animation-name: lightSpeedIn;
+    -moz-animation-timing-function: ease-out;
+    -moz-animation-duration: 1s;
+}
+
+@-webkit-keyframes lightSpeedIn {
+    0% {
+        -webkit-transform: translate3d(100%, 0, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        -webkit-transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        -webkit-transform: skewX(-5deg);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: none;
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes lightSpeedIn {
+    0% {
+        -moz-transform: translate3d(100%, 0, 0) skewX(-30deg);
+        opacity: 0;
+    }
+    60% {
+        -moz-transform: skewX(20deg);
+        opacity: 1;
+    }
+    80% {
+        -moz-transform: skewX(-5deg);
+        opacity: 1;
+    }
+    100% {
+        -moz-transform: none;
+        opacity: 1;
+    }
+}
+
+.logoshake {
+    -webkit-animation-name: logoshake;
+    -webkit-animation-duration: 0.5s;
+    -moz-animation-name: logoshake;
+    -moz-animation-duration: 0.5s;
+}
+
+@-webkit-keyframes logoshake {
+    /* 补充代码使logo产生左右晃动效果 */
+    0%, 100% {
+        -webkit-transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -webkit-transform: translate3d(-5px, 0, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -webkit-transform: translate3d(10px, 0, 0);
+    }
+}
+
+@-moz-keyframes logoshake {
+    0%, 100% {
+        -moz-transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        -moz-transform: translate3d(-5px, 0, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+        -moz-transform: translate3d(10px, 0, 0);
+    }
+}
+
+/*雪花*/
+#snowflake {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.snowRoll {
+    position: absolute;
+    opacity: 0;
+    -webkit-animation-name: mysnow;
+    -webkit-animation-duration: 20s;
+    -moz-animation-name: mysnow;
+    -moz-animation-duration: 20s;
+    height: 80px;
+}
+
+@-webkit-keyframes mysnow {
+    0% {
+        bottom: 100%;
+    }
+    50% {
+        -webkit-transform: rotate(1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+    }
+}
+
+@-moz-keyframes mysnow {
+    0% {
+        bottom: 100%;
+    }
+    50% {
+        -moz-transform: rotate(1080deg);
+    }
+    100% {
+        -moz-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+    }
+}
